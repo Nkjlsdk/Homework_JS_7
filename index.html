@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 5</title>
+</head>
+<body>
+    <p class="dropdown">Привет :)</p>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+        </button>        
+        <div class="menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+<br>
+<br>
+    <!-- Задача 8 -->
+
+ <p>Введите первое число</p><input  value="2" class="num1" type="number">
+    <br>
+<p>Введите второе число</p><input value="3" class="num2" type="number">
+<br>
+    <div class="operator_btns">
+        <button class="plus" onclick="operator='+'">+</button>
+        <button class="minus" onclick="operator='-'">-</button>
+        <button class="multi" onclick="operator='*'">x</button>
+        <button class="div" onclick="operator='/'">:</button>
+    </div>
+    <br>
+    <button onclick="culc()">Culc</button>
+    <p class="result"></p>
+
+
+<script>
+    "use strict";
+
+    console.log('Задача 1. Ко всем элементам, имеющим класс "dropdown-item" добавить еще один класс"super-dropdown", необходимо использовать методы forEach и querySelectorAll и свойство classList у элементов');
+
+        const addClasses = document.querySelectorAll('.dropdown-item');
+        addClasses.forEach((addClass) => {
+            addClass.classList.add('super-dropdown');
+        });
+        console.log(addClasses);
+        console.log('');
+
+        console.log('Задача 2. У элемента с классом btn необходимо убрать класс "btn-secondary", если он присутствует у этого элемента, либо добавить, если такого класса у элемента не было.');
+
+        const btn = document.querySelector('.btn');
+        if (btn.classList.contains('btn-secondary')) {
+            btn.classList.remove('btn-secondary');
+        } else btn.classList.add('btn-secondary');
+        console.log(btn);
+        console.log('');
+
+    console.log('Задача 3. Необходимо удалить класс "dropdown-menu" у элемента, у которого присутствует класс "menu"');
+
+        const menu = document.querySelector('.menu');
+        menu.classList.remove('dropdown-menu');
+        console.log(menu);
+        console.log('');
+
+    console.log('Задача 4. Используя метод insertAdjacentHTML добавьте после div с классом "dropdown" следующую разметку:<a href="#">link</a>');
+
+    const dropdown = document.querySelector('div.dropdown');
+    dropdown.insertAdjacentHTML('afterend', '<a href="#">link</a>');
+    console.log('');
+
+
+    console.log('Задача 5. У элемента с id "dropdownMenuButton" замените id на "superDropdown"');
+
+        const superDropdown = document.getElementById('dropdownMenuButton');
+        superDropdown.setAttribute('Id', 'superDropdown');
+
+        console.log('');
+
+
+    console.log('Задача 6. Добавьте атрибут data-dd со значением 3 элементу у которого существует атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset');
+
+    const dataAdd = document.querySelector('[aria-labelledby]');
+    console.log(dataAdd);
+    // dataAdd.setAttribute('data-dd', '3');
+    dataAdd.dataset.dd = 3;
+
+    console.log('');
+
+
+    console.log('Задача 7. Удалите атрибут type у элемента с классом "dropdown-toggle"');
+    const type = document.querySelector('.dropdown-toggle');
+    type.removeAttribute('type');
+    console.log('');
+
+    console.log('Задача 8.  Создать приложение простой калькулятор.Для вычисления выражения можно использовать встроенную ф-цию eval()');
+
+    let operator;
+
+    function culc(){
+        let result;
+        let num1 = Number(document.querySelector('.num1').value);
+        let num2 = Number(document.querySelector('.num2').value);
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num1 / num2;
+                break;            
+        }
+        document.querySelector('.result').innerHTML = result;
+    }
+    
+
+
+
+
+            
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
